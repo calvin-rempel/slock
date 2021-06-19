@@ -12,13 +12,13 @@ X11LIB = /usr/X11R6/lib
 
 # includes and libs
 INCS = -I. -I/usr/include -I${X11INC}
-LIBS = -L/usr/lib -lc -lcrypt -L${X11LIB} -lX11 -lXext -lXrandr
+LIBS = -L/usr/lib -lc -L${X11LIB} -lX11 -lXext -lXrandr
 
 # flags
-CPPFLAGS = -DVERSION=\"${VERSION}\" -D_DEFAULT_SOURCE -DHAVE_SHADOW_H
+CPPFLAGS = -DVERSION=\"${VERSION}\" -D_DEFAULT_SOURCE
 CFLAGS = -std=c99 -pedantic -Wall -Os ${INCS} ${CPPFLAGS}
 LDFLAGS = -s ${LIBS}
-COMPATSRC = explicit_bzero.c
+COMPATSRC =
 
 # On OpenBSD and Darwin remove -lcrypt from LIBS
 #LIBS = -L/usr/lib -lc -L${X11LIB} -lX11 -lXext -lXrandr
